@@ -151,4 +151,5 @@ while running :
     
 
 ''' 게임 종료 '''
+pygame.time.delay(2000)
 pygame.quit()

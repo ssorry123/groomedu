@@ -3,6 +3,11 @@ import pygame
 import random
 import os
 
+dirpath = os.path.dirname(os.path.realpath(__file__))
+print(dirpath)
+imgpath = os.path.join(dirpath, 'image')
+print(imgpath)
+
 ''' 게임 필수 세팅 '''
 class NadoGame:
     pygame.init()
@@ -19,8 +24,8 @@ class NadoGame:
 
     def __init__(self):
         # 배경 및 stage 설정
-        self.background = pygame.image.load("./image/background_1.png")
-        self.stage = pygame.image.load("./image/stage.png")
+        self.background = pygame.image.load(os.path.join(imgpath, 'background_1.png'))
+        self.stage = pygame.image.load(os.path.join(imgpath, 'stage.png'))
         self.stage_size = self.stage.get_rect().size
         self.stage_height = self.stage_size[1]
         # 게임 총 시간 및 폰트 설정
@@ -128,10 +133,10 @@ class Ball(Unit):
     # 공은 종류가 4개
     ball_speed_y = [-1.5, -1.2, -.9, -1.5]
     ball_images=[
-        "./image/balloon1.png",
-        "./image/balloon2.png",
-        "./image/balloon3.png",
-        "./image/balloon4.png",
+        os.path.join(imgpath, 'balloon1.png'),
+        os.path.join(imgpath, 'balloon2.png'),
+        os.path.join(imgpath, 'balloon3.png'),
+        os.path.join(imgpath, 'balloon4.png')
     ]
     gradient = 0.05
 
@@ -156,7 +161,7 @@ class Ball(Unit):
 class Weapon:
     weapons = list()
 
-    image = pygame.image.load("./image/weapon.png")
+    image = pygame.image.load(os.path.join(imgpath, 'weapon.png'))
     size = image.get_rect().size
     width = size[0]
     height = size[1]
@@ -183,7 +188,7 @@ print(Weapon.__dict__)
 # 이 게임의 정보 객체 생성
 nadoGame = NadoGame()
 # 주인공 캐릭터 생성, 객체 생성 함수와 통일을 맞춤
-Character("./image/character.png")
+Character(os.path.join(imgpath, 'character.png'))
 character = Character.character[0]
 # 최초 발생 큰공
 Ball(

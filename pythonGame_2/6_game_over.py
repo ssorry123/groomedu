@@ -135,7 +135,7 @@ class Ball(Unit):
     ]
     gradient = 0.05
 
-    def __init__(self, dict):
+    def __init__(self, **dict):
         self.img_idx = dict["img_idx"]
         image_path = self.ball_images[self.img_idx]
         Unit.__init__(self, image_path)
@@ -187,22 +187,18 @@ Character("./image/character.png")
 character = Character.character[0]
 # 최초 발생 큰공
 Ball(
-    {
-        "x_pos" : 50,       # 공의 x좌표
-        "y_pos" : 50,       # 공의 y좌표
-        "img_idx" : 0,      # 공의 이미지 인덱스
-        "to_x" : .2,
-        "to_y" : .2,
-    }
+    x_pos = 50,       # 공의 x좌표
+    y_pos = 50,       # 공의 y좌표
+    img_idx = 0,      # 공의 이미지 인덱스
+    to_x = .2,
+    to_y = .2,
 )
 Ball(
-    {
-        "x_pos" : 150,       # 공의 x좌표
-        "y_pos" : 250,       # 공의 y좌표
-        "img_idx" : 0,      # 공의 이미지 인덱스
-        "to_x" : 1,
-        "to_y" : 1,
-    }
+    x_pos = 150,       # 공의 x좌표
+    y_pos = 250,       # 공의 y좌표
+    img_idx = 0,      # 공의 이미지 인덱스
+    to_x = 1,
+    to_y = 1,
 )
 
 
@@ -294,23 +290,18 @@ while running :
                     small_ball_width = small_ball_rect.size[0]
                     small_ball_height = small_ball_rect.size[1]
                     Ball(
-                        {
-                            "x_pos" : ball.x_pos + ball.width/2 - small_ball_width/2,       # 공의 x좌표
-                            "y_pos" : ball.y_pos + ball.height/2 - small_ball_height/2,       # 공의 y좌표
-                            "img_idx" : ball.img_idx+1,      # 공의 이미지 인덱스
-                            "to_x" : -ball.to_x/2,
-                            "to_y" : -ball.to_y*3/2,
-                            
-                        }
+                        x_pos = ball.x_pos + ball.width/2 - small_ball_width/2,       # 공의 x좌표
+                        y_pos = ball.y_pos + ball.height/2 - small_ball_height/2,       # 공의 y좌표
+                        img_idx = ball.img_idx+1,      # 공의 이미지 인덱스
+                        to_x = -ball.to_x/2,
+                        to_y= -ball.to_y*3/2,     
                     )
                     Ball(
-                        {
-                            "x_pos" : ball.x_pos + ball.width/2 - small_ball_width/2,       # 공의 x좌표
-                            "y_pos" : ball.y_pos + ball.height/2 - small_ball_height/2,       # 공의 y좌표
-                            "img_idx" : ball.img_idx+1,      # 공의 이미지 인덱스
-                            "to_x" : ball.to_x/2,
-                            "to_y" : -ball.to_y*3/2,                        
-                        }
+                        x_pos=  ball.x_pos + ball.width/2 - small_ball_width/2,       # 공의 x좌표
+                        y_pos = ball.y_pos + ball.height/2 - small_ball_height/2,       # 공의 y좌표
+                        img_idx  =ball.img_idx+1,      # 공의 이미지 인덱스
+                        to_x= ball.to_x/2,
+                        to_y = -ball.to_y*3/2,                        
                     )                  
 
 

@@ -1,9 +1,4 @@
 from tkinter import *
-import os
-
-dirpath = os.path.dirname(os.path.realpath(__file__)) 
-imgpath = os.path.join(dirpath, 'image')
-
 
 root = Tk()
 root.title("SW GUI")    # 창 이름 설정
